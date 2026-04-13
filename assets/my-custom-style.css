@@ -13,3 +13,12 @@
   }
 }
 /* ========================== END GLOBAL OVERIDES - Layout & Page padding ==========================*/
+
+/* ========================== Announcement bar =============================== */
+.announcement-bar__message {
+  text-transform: var(--text-transform);
+  padding: 0px;
+  min-height: 0px;
+}
+
+/* ========================== ENd Announcement bar =============================== */
