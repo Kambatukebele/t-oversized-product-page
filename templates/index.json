@@ -15,14 +15,21 @@
         "heading": {
           "type": "heading",
           "settings": {
-            "heading": "Browse our latest products",
+            "heading": "ESSENTIALS, REFINED",
             "heading_size": "h0"
+          }
+        },
+        "text_YUYj3M": {
+          "type": "text",
+          "settings": {
+            "text": "Minimal silhouettes designed for everyday wear.",
+            "text_style": "body"
           }
         },
         "button": {
           "type": "buttons",
           "settings": {
-            "button_label_1": "Shop all",
+            "button_label_1": "Shop now",
             "button_link_1": "shopify://collections/all",
             "button_style_secondary_1": true,
             "button_label_2": "",
@@ -33,52 +40,249 @@
       },
       "block_order": [
         "heading",
+        "text_YUYj3M",
         "button"
       ],
       "settings": {
-        "image_overlay_opacity": 40,
+        "image": "shopify://shop_images/t-oversized-hero.png",
+        "image_overlay_opacity": 20,
         "image_height": "large",
-        "desktop_content_position": "bottom-center",
-        "show_text_box": false,
         "image_behavior": "none",
-        "desktop_content_alignment": "center",
-        "color_scheme": "scheme-3",
-        "mobile_content_alignment": "center",
+        "desktop_content_position": "bottom-left",
+        "desktop_content_alignment": "left",
+        "show_text_box": false,
+        "color_scheme": "scheme-4",
         "stack_images_on_mobile": false,
+        "mobile_content_alignment": "center",
         "show_text_below": false
       }
     },
     "featured_collection": {
       "type": "featured-collection",
       "settings": {
+        "collection": "all",
+        "products_to_show": 25,
         "title": "Featured products",
         "heading_size": "h2",
         "description": "",
         "show_description": false,
         "description_style": "body",
-        "collection": "all",
-        "products_to_show": 8,
         "columns_desktop": 4,
-        "color_scheme": "scheme-1",
-        "full_width": false,
-        "show_view_all": true,
+        "enable_desktop_slider": true,
+        "full_width": true,
+        "show_view_all": false,
         "view_all_style": "solid",
-        "enable_desktop_slider": false,
-        "swipe_on_mobile": false,
-        "image_ratio": "adapt",
+        "color_scheme": "scheme-2",
+        "image_ratio": "portrait",
         "image_shape": "default",
         "show_secondary_image": true,
         "show_vendor": false,
         "show_rating": false,
         "quick_add": "none",
         "columns_mobile": "2",
-        "padding_top": 44,
+        "swipe_on_mobile": false,
+        "padding_top": 64,
+        "padding_bottom": 64
+      }
+    },
+    "collection_list_aBV3CL": {
+      "type": "collection-list",
+      "blocks": {
+        "featured_collection_dWcwbY": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "men"
+          }
+        },
+        "featured_collection_EAfkkE": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "women"
+          }
+        }
+      },
+      "block_order": [
+        "featured_collection_dWcwbY",
+        "featured_collection_EAfkkE"
+      ],
+      "name": "t:sections.collection-list.presets.name",
+      "settings": {
+        "title": "",
+        "heading_size": "h2",
+        "image_ratio": "square",
+        "columns_desktop": 2,
+        "color_scheme": "scheme-2",
+        "show_view_all": false,
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "image_banner_ae4RwW": {
+      "type": "image-banner",
+      "blocks": {
+        "heading_Mfh34X": {
+          "type": "heading",
+          "settings": {
+            "heading": "WOMEN EVERYDAY WEAR",
+            "heading_size": "h1"
+          }
+        },
+        "text_QFKrMW": {
+          "type": "text",
+          "settings": {
+            "text": "Soft tailoring, crisp shirts and relaxed trousers. Minimalism for every event this season.",
+            "text_style": "body"
+          }
+        },
+        "buttons_nhmghC": {
+          "type": "buttons",
+          "settings": {
+            "button_label_1": "SHOP NOW",
+            "button_link_1": "",
+            "button_style_secondary_1": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_Mfh34X",
+        "text_QFKrMW",
+        "buttons_nhmghC"
+      ],
+      "name": "t:sections.image-banner.presets.name",
+      "settings": {
+        "image": "shopify://shop_images/fashionable-woman-sitting-on-stairs.jpg",
+        "image_overlay_opacity": 30,
+        "image_height": "large",
+        "image_behavior": "none",
+        "desktop_content_position": "bottom-left",
+        "desktop_content_alignment": "left",
+        "show_text_box": false,
+        "color_scheme": "",
+        "stack_images_on_mobile": true,
+        "mobile_content_alignment": "center",
+        "show_text_below": true
+      }
+    },
+    "featured_collection_ULAAR7": {
+      "type": "featured-collection",
+      "name": "t:sections.featured-collection.presets.name",
+      "settings": {
+        "collection": "men",
+        "products_to_show": 4,
+        "title": "",
+        "heading_size": "h1",
+        "description": "",
+        "show_description": false,
+        "description_style": "body",
+        "columns_desktop": 4,
+        "enable_desktop_slider": false,
+        "full_width": true,
+        "show_view_all": false,
+        "view_all_style": "solid",
+        "color_scheme": "scheme-2",
+        "image_ratio": "portrait",
+        "image_shape": "default",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": false,
+        "quick_add": "none",
+        "columns_mobile": "2",
+        "swipe_on_mobile": false,
+        "padding_top": 16,
+        "padding_bottom": 16
+      }
+    },
+    "image_banner_TADyHm": {
+      "type": "image-banner",
+      "blocks": {
+        "heading_8CVkbT": {
+          "type": "heading",
+          "settings": {
+            "heading": "MEN EVERYDAY WEAR",
+            "heading_size": "h1"
+          }
+        },
+        "text_knQXga": {
+          "type": "text",
+          "settings": {
+            "text": "Soft tailoring, crisp shirts and relaxed trousers. Minimalism for every event this season.",
+            "text_style": "body"
+          }
+        },
+        "buttons_UbVMqx": {
+          "type": "buttons",
+          "settings": {
+            "button_label_1": "SHOP NOW",
+            "button_link_1": "",
+            "button_style_secondary_1": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_8CVkbT",
+        "text_knQXga",
+        "buttons_UbVMqx"
+      ],
+      "name": "t:sections.image-banner.presets.name",
+      "settings": {
+        "image": "shopify://shop_images/man-sitting-in-city.jpg",
+        "image_overlay_opacity": 0,
+        "image_height": "large",
+        "image_behavior": "none",
+        "desktop_content_position": "bottom-left",
+        "desktop_content_alignment": "left",
+        "show_text_box": false,
+        "color_scheme": "scheme-1",
+        "stack_images_on_mobile": true,
+        "mobile_content_alignment": "center",
+        "show_text_below": true
+      }
+    },
+    "featured_collection_WVLFjk": {
+      "type": "featured-collection",
+      "name": "t:sections.featured-collection.presets.name",
+      "settings": {
+        "collection": "women",
+        "products_to_show": 4,
+        "title": "",
+        "heading_size": "h1",
+        "description": "",
+        "show_description": false,
+        "description_style": "body",
+        "columns_desktop": 4,
+        "enable_desktop_slider": false,
+        "full_width": true,
+        "show_view_all": false,
+        "view_all_style": "solid",
+        "color_scheme": "scheme-2",
+        "image_ratio": "portrait",
+        "image_shape": "default",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": false,
+        "quick_add": "none",
+        "columns_mobile": "2",
+        "swipe_on_mobile": false,
+        "padding_top": 36,
         "padding_bottom": 36
       }
     }
   },
   "order": [
     "image_banner",
-    "featured_collection"
+    "featured_collection",
+    "collection_list_aBV3CL",
+    "image_banner_ae4RwW",
+    "featured_collection_ULAAR7",
+    "image_banner_TADyHm",
+    "featured_collection_WVLFjk"
   ]
 }

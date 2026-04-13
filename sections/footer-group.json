@@ -13,9 +13,45 @@
   "sections": {
     "footer": {
       "type": "footer",
+      "blocks": {
+        "image_xchzXH": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/t-oversized-logo.png",
+            "image_width": 295,
+            "alignment": ""
+          }
+        },
+        "text_NdR9zY": {
+          "type": "text",
+          "settings": {
+            "heading": "Heading",
+            "subtext": "<p>Share contact information, store details, and brand content with your customers.</p>"
+          }
+        },
+        "brand_information_e8aL99": {
+          "type": "brand_information",
+          "settings": {
+            "show_social": true
+          }
+        },
+        "link_list_ajAm97": {
+          "type": "link_list",
+          "settings": {
+            "heading": "Quick links",
+            "menu": "footer"
+          }
+        }
+      },
+      "block_order": [
+        "image_xchzXH",
+        "text_NdR9zY",
+        "brand_information_e8aL99",
+        "link_list_ajAm97"
+      ],
       "settings": {
         "color_scheme": "scheme-1",
-        "newsletter_enable": true,
+        "newsletter_enable": false,
         "newsletter_heading": "Subscribe to our emails",
         "enable_follow_on_shop": true,
         "show_social": true,
@@ -23,8 +59,8 @@
         "enable_language_selector": true,
         "payment_enable": true,
         "show_policy": true,
-        "margin_top": 0,
-        "padding_top": 36,
+        "margin_top": 64,
+        "padding_top": 64,
         "padding_bottom": 36
       }
     }
