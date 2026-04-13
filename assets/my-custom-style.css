@@ -1,0 +1,15 @@
+/* ========================== GLOBAL OVERIDES - Layout & Page padding ==========================*/
+.page-width {
+  padding: 0 64px;
+}
+@media screen and (min-width: 750px) and (max-width: 989px) {
+  .page-width {
+    padding: 0 40px; /* adjust to your design */
+  }
+}
+@media screen and (max-width: 749px) {
+  .page-width {
+    padding: 0 20px;
+  }
+}
+/* ========================== END GLOBAL OVERIDES - Layout & Page padding ==========================*/
