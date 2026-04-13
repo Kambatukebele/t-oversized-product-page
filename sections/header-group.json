@@ -17,8 +17,7 @@
         "announcement-bar-0": {
           "type": "announcement",
           "settings": {
-            "text": "NEW FAVORITES HAVE ARRIVED | SHOP NOW",
-            "link": "shopify://collections"
+            "text": "<p>Discover what's new this season | <strong>Shop the latest arrivals</strong></p>"
           }
         }
       },
@@ -29,6 +28,7 @@
         "auto_rotate": false,
         "change_slides_speed": 5,
         "color_scheme": "scheme-1",
+        "text_transform": "uppercase",
         "show_line_separator": true,
         "show_social": false,
         "enable_country_selector": false,
