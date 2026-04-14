@@ -499,6 +499,27 @@
     },
     {
       "type": "select",
+      "id": "menu_text_transform",
+      "label": "Menu text transform",
+      "options": [
+        {
+          "value": "none",
+          "label": "Normal"
+        },
+        {
+          "value": "uppercase",
+          "label": "Uppercase"
+        },
+        {
+          "value": "capitalize",
+          "label": "Capitalize"
+        }
+      ],
+      "default": "none",
+      "info": "This handle the text transform for the menu"
+    },
+    {
+      "type": "select",
       "id": "mobile_logo_position",
       "options": [
         {
@@ -652,6 +673,21 @@
   "blocks": [
     {
       "type": "@app"
+    },
+    {
+      "name": "Mega menu image",
+      "type": "mega_menu_image",
+      "settings": [
+        {
+          "type": "header",
+          "content": "Mega menu collection image"
+        },
+        {
+          "type": "collection",
+          "id": "mega_menu_collection_image",
+          "label": "Mega menu Collection image"
+        }
+      ]
     }
   ]
 }
