@@ -34,7 +34,10 @@
       >
         {%- if section.blocks.first.settings.text != blank -%}
           <div>
-            <div class="announcement-bar__message h5" style="--text-transform:{{ section.settings.text_transform }}">
+            <div
+              class="announcement-bar__message newh5"
+              style="--text-transform:{{ section.settings.text_transform }};--announcement-font-size:{{ section.settings.font_size }}px"
+            >
               {{- section.blocks.first.settings.text -}}
             </div>
             {%- if section.blocks.first.settings.link != blank -%}
@@ -90,8 +93,8 @@
                       class=""
                     >
                       <div
-                        class="announcement-bar__message h5"
-                        style="--text-transform:{{ section.settings.text_transform }}"
+                        class="announcement-bar__message newh5"
+                        style="--text-transform:{{ section.settings.text_transform }};--announcement-font-size:{{ section.settings.font_size }}px"
                       >
                         {{- block.settings.text -}}
                       </div>
@@ -183,6 +186,16 @@
       "id": "color_scheme",
       "label": "t:sections.all.colors.label",
       "default": "scheme-4"
+    },
+    {
+      "type": "range",
+      "id": "font_size",
+      "min": 10,
+      "max": 18,
+      "step": 1,
+      "unit": "px",
+      "label": "Font size",
+      "default": 12
     },
     {
       "type": "select",
