@@ -20,5 +20,9 @@
   padding: 0px;
   min-height: 0px;
 }
+.newh5 {
+  font-family: var(--font-body-family);
+  font-size: var(--announcement-font-size);
+}
 
 /* ========================== ENd Announcement bar =============================== */
