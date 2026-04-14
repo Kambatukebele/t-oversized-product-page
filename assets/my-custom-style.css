@@ -26,3 +26,44 @@
 }
 
 /* ========================== ENd Announcement bar =============================== */
+
+/* ========================== Header =============================== */
+
+.header__inline-menu .list-menu--inline li,
+.header--middle-center
+  .menu-drawer-container
+  #menu-drawer
+  .menu-drawer__inner-container
+  .menu-drawer__navigation-container
+  .menu-drawer__navigation
+  .menu-drawer__menu
+  li {
+  text-transform: var(--menu-text-transform);
+}
+.mega-menu__encapsulate {
+  display: flex;
+}
+.mega-menu__image-container {
+  max-width: 300px;
+  max-height: 390px;
+  border: 1px solid black;
+}
+.mega-menu__image-block {
+  width: 300px;
+  height: 390px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.mega-menu__image-block span {
+  font-size: 12px;
+  font-family: var(--font-body-family);
+}
+.mega-menu__image {
+  width: 100%x;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+/* ========================== End Header =============================== */
