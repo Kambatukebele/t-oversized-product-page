@@ -121,13 +121,22 @@
         {%- case block.type -%}
           {%- when 'heading' -%}
             <h2
+              {% if block.settings.activate_heading_container %}
+                style="--heading_color_scheme_container:{{ block.settings.heading_color_scheme_container.settings.background }}; --heading_color_scheme_container-text-color:{{ block.settings.heading_color_scheme_container.settings.text }}"
+              {% endif %}
               class="banner__heading inline-richtext {{ block.settings.heading_size }}"
               {{ block.shopify_attributes }}
             >
               {{ block.settings.heading }}
             </h2>
           {%- when 'text' -%}
-            <div class="banner__text rte {{ block.settings.text_style }}" {{ block.shopify_attributes }}>
+            <div
+              {% if block.settings.activate_body_container %}
+                style="--body_color_scheme_container:{{ block.settings.body_color_scheme_container.settings.background }}; --body_color_scheme_container-text-color:{{ block.settings.body_color_scheme_container.settings.text }}"
+              {% endif %}
+              class="banner__text rte {{ block.settings.text_style }}"
+              {{ block.shopify_attributes }}
+            >
               <p>{{ block.settings.text }}</p>
             </div>
           {%- when 'buttons' -%}
@@ -332,7 +341,7 @@
       "id": "stack_images_on_mobile",
       "default": true,
       "label": "t:sections.image-banner.settings.stack_images_on_mobile.label"
-    },    
+    },
     {
       "type": "select",
       "id": "mobile_content_alignment",
@@ -399,6 +408,20 @@
           ],
           "default": "h1",
           "label": "t:sections.all.heading_size.label"
+        },
+        {
+          "type": "checkbox",
+          "id": "activate_heading_container",
+          "label": "Activate heading container",
+          "default": false,
+          "info": "Activate heading container"
+        },
+        {
+          "type": "color_scheme",
+          "id": "heading_color_scheme_container",
+          "label": "Color scheme container",
+          "default": "scheme-1",
+          "visible_if": "{{ block.settings.activate_heading_container }}"
         }
       ]
     },
@@ -432,6 +455,20 @@
           ],
           "default": "body",
           "label": "t:sections.image-banner.blocks.text.settings.text_style.label"
+        },
+        {
+          "type": "checkbox",
+          "id": "activate_body_container",
+          "label": "Activate body container",
+          "default": false,
+          "info": "Activate body container"
+        },
+        {
+          "type": "color_scheme",
+          "id": "body_color_scheme_container",
+          "label": "Color scheme container",
+          "default": "scheme-1",
+          "visible_if": "{{ block.settings.activate_body_container }}"
         }
       ]
     },
@@ -441,8 +478,8 @@
       "limit": 1,
       "settings": [
         {
-        "type": "header",
-        "content": "t:sections.image-banner.blocks.buttons.settings.header_1.content"
+          "type": "header",
+          "content": "t:sections.image-banner.blocks.buttons.settings.header_1.content"
         },
         {
           "type": "text",
@@ -463,8 +500,8 @@
           "label": "t:sections.image-banner.blocks.buttons.settings.button_style_secondary_1.label"
         },
         {
-        "type": "header",
-        "content": "t:sections.image-banner.blocks.buttons.settings.header_2.content"
+          "type": "header",
+          "content": "t:sections.image-banner.blocks.buttons.settings.header_2.content"
         },
         {
           "type": "text",
