@@ -16,22 +16,26 @@
           "type": "heading",
           "settings": {
             "heading": "ESSENTIALS, REFINED",
-            "heading_size": "h0"
+            "heading_size": "hxl",
+            "activate_heading_container": true,
+            "heading_color_scheme_container": "scheme-2"
           }
         },
         "text_YUYj3M": {
           "type": "text",
           "settings": {
             "text": "Minimal silhouettes designed for everyday wear.",
-            "text_style": "body"
+            "text_style": "body",
+            "activate_body_container": true,
+            "body_color_scheme_container": "scheme-2"
           }
         },
-        "button": {
+        "buttons_jhhaic": {
           "type": "buttons",
           "settings": {
-            "button_label_1": "Shop now",
-            "button_link_1": "shopify://collections/all",
-            "button_style_secondary_1": true,
+            "button_label_1": "SHOP NOW",
+            "button_link_1": "shopify://collections",
+            "button_style_secondary_1": false,
             "button_label_2": "",
             "button_link_2": "",
             "button_style_secondary_2": false
@@ -41,11 +45,11 @@
       "block_order": [
         "heading",
         "text_YUYj3M",
-        "button"
+        "buttons_jhhaic"
       ],
       "settings": {
-        "image": "shopify://shop_images/t-oversized-hero.png",
-        "image_overlay_opacity": 20,
+        "image": "shopify://shop_images/t-oversized-pic-6.jpg",
+        "image_overlay_opacity": 0,
         "image_height": "large",
         "image_behavior": "none",
         "desktop_content_position": "bottom-left",
@@ -126,14 +130,18 @@
           "type": "heading",
           "settings": {
             "heading": "WOMEN EVERYDAY WEAR",
-            "heading_size": "h1"
+            "heading_size": "h1",
+            "activate_heading_container": false,
+            "heading_color_scheme_container": ""
           }
         },
         "text_QFKrMW": {
           "type": "text",
           "settings": {
             "text": "Soft tailoring, crisp shirts and relaxed trousers. Minimalism for every event this season.",
-            "text_style": "body"
+            "text_style": "body",
+            "activate_body_container": false,
+            "body_color_scheme_container": ""
           }
         },
         "buttons_nhmghC": {
@@ -204,14 +212,18 @@
           "type": "heading",
           "settings": {
             "heading": "MEN EVERYDAY WEAR",
-            "heading_size": "h1"
+            "heading_size": "h1",
+            "activate_heading_container": false,
+            "heading_color_scheme_container": ""
           }
         },
         "text_knQXga": {
           "type": "text",
           "settings": {
             "text": "Soft tailoring, crisp shirts and relaxed trousers. Minimalism for every event this season.",
-            "text_style": "body"
+            "text_style": "body",
+            "activate_body_container": false,
+            "body_color_scheme_container": ""
           }
         },
         "buttons_UbVMqx": {
