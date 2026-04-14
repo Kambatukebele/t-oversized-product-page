@@ -17,7 +17,7 @@
         "announcement-bar-0": {
           "type": "announcement",
           "settings": {
-            "text": "<p>Discover what's new this season | <strong>Shop the latest arrivals</strong></p>"
+            "text": "<p>Discover what's new this season | Shop the latest arrivals</p>"
           }
         }
       },
