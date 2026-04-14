@@ -14,6 +14,18 @@
     "announcement-bar": {
       "type": "announcement-bar",
       "blocks": {
+        "announcement_FYx4DM": {
+          "type": "announcement",
+          "settings": {
+            "text": "<p>Free shipping on orders over $50 — Shop now</p>"
+          }
+        },
+        "announcement_j7RijB": {
+          "type": "announcement",
+          "settings": {
+            "text": "<p>Limited time offer: Free shipping on orders over $50 | Use code SPRING26</p>"
+          }
+        },
         "announcement-bar-0": {
           "type": "announcement",
           "settings": {
@@ -22,12 +34,15 @@
         }
       },
       "block_order": [
+        "announcement_FYx4DM",
+        "announcement_j7RijB",
         "announcement-bar-0"
       ],
       "settings": {
-        "auto_rotate": false,
+        "auto_rotate": true,
         "change_slides_speed": 5,
         "color_scheme": "scheme-1",
+        "font_size": 12,
         "text_transform": "uppercase",
         "show_line_separator": true,
         "show_social": false,
