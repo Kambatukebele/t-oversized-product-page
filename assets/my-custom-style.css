@@ -67,3 +67,18 @@
   object-position: center;
 }
 /* ========================== End Header =============================== */
+
+/* ========================== Hero =============================== */
+.banner__heading {
+  background-color: var(--heading_color_scheme_container);
+  color: var(--heading_color_scheme_container-text-color);
+  padding: 4px;
+  width: fit-content;
+}
+.banner__text {
+  background-color: var(--body_color_scheme_container);
+  color: var(--body_color_scheme_container-text-color);
+  padding: 4px;
+  width: fit-content;
+}
+/* ========================== End Hero =============================== */
