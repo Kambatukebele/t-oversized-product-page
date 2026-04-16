@@ -113,7 +113,8 @@
       "settings": {
         "title": "",
         "heading_size": "h2",
-        "image_ratio": "square",
+        "image_ratio": "portrait",
+        "images_full_width": true,
         "columns_desktop": 2,
         "color_scheme": "scheme-2",
         "show_view_all": false,
@@ -131,24 +132,24 @@
           "settings": {
             "heading": "WOMEN EVERYDAY WEAR",
             "heading_size": "h1",
-            "activate_heading_container": false,
-            "heading_color_scheme_container": ""
+            "activate_heading_container": true,
+            "heading_color_scheme_container": "scheme-2"
           }
         },
         "text_QFKrMW": {
           "type": "text",
           "settings": {
             "text": "Soft tailoring, crisp shirts and relaxed trousers. Minimalism for every event this season.",
-            "text_style": "body",
-            "activate_body_container": false,
-            "body_color_scheme_container": ""
+            "text_style": "caption-with-letter-spacing",
+            "activate_body_container": true,
+            "body_color_scheme_container": "scheme-2"
           }
         },
         "buttons_nhmghC": {
           "type": "buttons",
           "settings": {
-            "button_label_1": "SHOP NOW",
-            "button_link_1": "",
+            "button_label_1": "SHOP WOMEN",
+            "button_link_1": "shopify://collections/women",
             "button_style_secondary_1": false,
             "button_label_2": "",
             "button_link_2": "",
@@ -163,8 +164,8 @@
       ],
       "name": "t:sections.image-banner.presets.name",
       "settings": {
-        "image": "shopify://shop_images/fashionable-woman-sitting-on-stairs.jpg",
-        "image_overlay_opacity": 30,
+        "image": "shopify://shop_images/ChatGPT_Image_Apr_16_2026_10_42_27_AM.png",
+        "image_overlay_opacity": 0,
         "image_height": "large",
         "image_behavior": "none",
         "desktop_content_position": "bottom-left",
@@ -172,15 +173,15 @@
         "show_text_box": false,
         "color_scheme": "",
         "stack_images_on_mobile": true,
-        "mobile_content_alignment": "center",
-        "show_text_below": true
+        "mobile_content_alignment": "left",
+        "show_text_below": false
       }
     },
     "featured_collection_ULAAR7": {
       "type": "featured-collection",
       "name": "t:sections.featured-collection.presets.name",
       "settings": {
-        "collection": "men",
+        "collection": "women",
         "products_to_show": 4,
         "title": "",
         "heading_size": "h1",
@@ -213,24 +214,24 @@
           "settings": {
             "heading": "MEN EVERYDAY WEAR",
             "heading_size": "h1",
-            "activate_heading_container": false,
-            "heading_color_scheme_container": ""
+            "activate_heading_container": true,
+            "heading_color_scheme_container": "scheme-2"
           }
         },
         "text_knQXga": {
           "type": "text",
           "settings": {
             "text": "Soft tailoring, crisp shirts and relaxed trousers. Minimalism for every event this season.",
-            "text_style": "body",
-            "activate_body_container": false,
-            "body_color_scheme_container": ""
+            "text_style": "caption-with-letter-spacing",
+            "activate_body_container": true,
+            "body_color_scheme_container": "scheme-2"
           }
         },
         "buttons_UbVMqx": {
           "type": "buttons",
           "settings": {
-            "button_label_1": "SHOP NOW",
-            "button_link_1": "",
+            "button_label_1": "SHOP MEN",
+            "button_link_1": "shopify://collections/men",
             "button_style_secondary_1": false,
             "button_label_2": "",
             "button_link_2": "",
@@ -245,7 +246,7 @@
       ],
       "name": "t:sections.image-banner.presets.name",
       "settings": {
-        "image": "shopify://shop_images/man-sitting-in-city.jpg",
+        "image": "shopify://shop_images/ChatGPT_Image_Apr_16_2026_10_47_27_AM.png",
         "image_overlay_opacity": 0,
         "image_height": "large",
         "image_behavior": "none",
@@ -262,7 +263,7 @@
       "type": "featured-collection",
       "name": "t:sections.featured-collection.presets.name",
       "settings": {
-        "collection": "women",
+        "collection": "men",
         "products_to_show": 4,
         "title": "",
         "heading_size": "h1",
