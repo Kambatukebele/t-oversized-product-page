@@ -16,7 +16,7 @@
           "type": "heading",
           "settings": {
             "heading": "ESSENTIALS, REFINED",
-            "heading_size": "hxl",
+            "heading_size": "h0",
             "activate_heading_container": true,
             "heading_color_scheme_container": "scheme-2"
           }
@@ -25,7 +25,7 @@
           "type": "text",
           "settings": {
             "text": "Minimal silhouettes designed for everyday wear.",
-            "text_style": "body",
+            "text_style": "caption-with-letter-spacing",
             "activate_body_container": true,
             "body_color_scheme_container": "scheme-2"
           }
@@ -57,16 +57,16 @@
         "show_text_box": false,
         "color_scheme": "scheme-4",
         "stack_images_on_mobile": false,
-        "mobile_content_alignment": "center",
+        "mobile_content_alignment": "left",
         "show_text_below": false
       }
     },
     "featured_collection": {
       "type": "featured-collection",
       "settings": {
-        "collection": "all",
-        "products_to_show": 25,
-        "title": "Featured products",
+        "collection": "men",
+        "products_to_show": 10,
+        "title": "",
         "heading_size": "h2",
         "description": "",
         "show_description": false,
@@ -81,8 +81,8 @@
         "image_shape": "default",
         "show_secondary_image": true,
         "show_vendor": false,
-        "show_rating": false,
-        "quick_add": "none",
+        "show_rating": true,
+        "quick_add": "standard",
         "columns_mobile": "2",
         "swipe_on_mobile": false,
         "padding_top": 64,
