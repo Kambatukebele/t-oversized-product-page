@@ -82,3 +82,22 @@
   width: fit-content;
 }
 /* ========================== End Hero =============================== */
+
+/* Footer */
+
+.footer-block__details-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+}
+@media screen and (min-width: 750px) and (max-width: 989px) {
+  .footer-block__details-content {
+    flex-wrap: wrap;
+  }
+}
+@media screen and (max-width: 749px) {
+  .footer-block__details-content {
+    /* flex-direction: column; */
+    flex-wrap: wrap;
+  }
+}
