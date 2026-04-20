@@ -83,7 +83,19 @@
 }
 /* ========================== End Hero =============================== */
 
-/* Footer */
+/* ========================== Collection list  ========================== */
+
+/* ========================== End Collection list  ========================== */
+
+.card__information {
+  position: var(--position-absolute);
+  bottom: var(--position-bottom);
+  background-color: var(--heading-description-bg);
+  color: var(--heading-description-color);
+  width: fit-content;
+}
+
+/* ========================== Footer  ========================== */
 
 .footer-block__details-content {
   display: flex;
@@ -101,3 +113,5 @@
     flex-wrap: wrap;
   }
 }
+
+/* ========================== End Footer  ========================== */
