@@ -9,6 +9,10 @@
   - wrapper_class: {String} Wrapper class for card (optional)
   - placeholder_image: {String} Placeholder image when collection is empty (optional)
 
+  - allow_text_on_image: Enable to position absolute the text on the image
+  - text_on_image_bottom_position: the position of the text from the bottom
+  - text_on_image_scheme: the background color and color of the heading and description
+
   Usage:
   {% render 'card-collection' %}
 {% endcomment %}
@@ -118,7 +122,12 @@
     </div>
     {%- if card_collection != blank and card_style == 'card' or card_collection.featured_image -%}
       <div class="card__content">
-        <div class="card__information">
+        <div
+          {% if allow_text_on_image == true %}
+            style="--position-absolute: absolute; --position-bottom: {{ text_on_image_bottom_position }}px; --heading-description-bg:{{ text_on_image_scheme.settings.background }}; --heading-description-color:{{ text_on_image_scheme.settings.text }}"
+          {% endif %}
+          class="card__information"
+        >
           <h3 class="card__heading">
             <a
               {% if card_collection == blank %}
