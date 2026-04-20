@@ -82,7 +82,10 @@
               card_collection: block.settings.collection,
               media_aspect_ratio: section.settings.image_ratio,
               columns: columns,
-              placeholder_image: placeholder_image
+              placeholder_image: placeholder_image,
+              allow_text_on_image: section.settings.allow_text_on_image,
+              text_on_image_bottom_position: section.settings.text_on_image_bottom_position,
+              text_on_image_scheme: section.settings.text_on_image_scheme
             %}
           </li>
         {%- endfor -%}
@@ -236,6 +239,34 @@
       "default": false,
       "label": "t:sections.collection-list.settings.show_view_all.label",
       "info": "t:sections.collection-list.settings.show_view_all.info"
+    },
+    {
+      "type": "paragraph",
+      "content": "Heading and description collection"
+    },
+    {
+      "type": "checkbox",
+      "id": "allow_text_on_image",
+      "label": "Heading & description on Image",
+      "default": false
+    },
+    {
+      "type": "range",
+      "id": "text_on_image_bottom_position",
+      "min": 0,
+      "max": 50,
+      "unit": "px",
+      "step": 1,
+      "label": "Bottom position",
+      "default": 10,
+      "visible_if": "{{ section.settings.allow_text_on_image }}"
+    },
+    {
+      "type": "color_scheme",
+      "id": "text_on_image_scheme",
+      "label": "Heading and description color",
+      "default": "scheme-1",
+      "visible_if": "{{ section.settings.allow_text_on_image }}"
     },
     {
       "type": "header",
