@@ -12,13 +12,6 @@
     "main": {
       "type": "main-product",
       "blocks": {
-        "vendor": {
-          "type": "text",
-          "settings": {
-            "text": "{{ product.vendor }}",
-            "text_style": "uppercase"
-          }
-        },
         "title": {
           "type": "title",
           "settings": {}
@@ -44,69 +37,23 @@
             "show_dynamic_checkout": false,
             "show_gift_card_recipient": false
           }
-        },
-        "collapsible_tab_aATRtW": {
-          "type": "collapsible_tab",
-          "settings": {
-            "heading": "Description",
-            "icon": "none",
-            "content": "<p>Your wardrobe essentials built on form, function and timeless style for everyday modern life.  </p><p><strong>Highlights</strong></p><p>• cotton blend jersey </p><p>• soft waffle texture </p><p>• crew neckline </p><p>• Calvin Klein monogram badge on the chest  </p><p><strong>Shape & Fit</strong>  </p><p>• regular fit </p><p>• long sleeves  </p><p>Composition & Care  60% cotton 40% polyester </p><p>machine wash  </p><p>country of origin: </p><p>Bangladesh</p>",
-            "page": ""
-          }
-        },
-        "collapsible_tab_DPUbz3": {
-          "type": "collapsible_tab",
-          "settings": {
-            "heading": "Composition & materials",
-            "icon": "none",
-            "content": "<p><strong>Main Fabric  </strong></p><p>100% Cotton<br/><br/><strong>Fabric Weight  </strong></p><p>Midweight (approx. 220–240 GSM)<br/><br/><strong>Finish  </strong></p><p>Garment-washed for a soft hand feel and subtle worn-in look<br/><strong><br/>Construction Details</strong><br/></p><ul><li> Ribbed crew neckline</li><li> Reinforced shoulder seams</li><li> Double-stitched hems for durability</li></ul><p><strong>Fit Type</strong> </p><p> Oversized / relaxed silhouette</p>",
-            "page": ""
-          }
-        },
-        "collapsible_tab_prNhpw": {
-          "type": "collapsible_tab",
-          "settings": {
-            "heading": "Care Guide",
-            "icon": "none",
-            "content": "<p>To maintain shape, color, and fabric quality:<br/></p><ul><li> Machine wash cold (30°C) with similar colors</li><li> Turn inside out before washing</li><li> Do not bleach</li><li> Do not tumble dry (air dry recommended)</li><li> Iron on low heat if needed (avoid print area)</li><li> Do not dry clean</li></ul>",
-            "page": ""
-          }
-        },
-        "collapsible_tab_UFXzmi": {
-          "type": "collapsible_tab",
-          "settings": {
-            "heading": "Shipping & Returns",
-            "icon": "none",
-            "content": "<p>Standard delivery is usually within 3-5 working days. Returns are always free. Click <a href=\"https://www.calvinklein.cz/help/faqs-returns-and-refunds\" target=\"_blank\">here</a> for more information.</p>",
-            "page": ""
-          }
-        },
-        "description": {
-          "type": "description",
-          "settings": {}
         }
       },
       "block_order": [
-        "vendor",
         "title",
         "price",
         "rating_4rUR8X",
         "variant_picker",
-        "buy_buttons",
-        "collapsible_tab_aATRtW",
-        "collapsible_tab_DPUbz3",
-        "collapsible_tab_prNhpw",
-        "collapsible_tab_UFXzmi",
-        "description"
+        "buy_buttons"
       ],
       "settings": {
         "enable_sticky_info": true,
-        "color_scheme": "scheme-1",
-        "media_size": "medium",
+        "color_scheme": "scheme-2",
+        "media_size": "large",
         "constrain_to_viewport": false,
         "media_fit": "cover",
         "gallery_layout": "stacked",
-        "mobile_thumbnails": "columns",
+        "mobile_thumbnails": "show",
         "media_position": "left",
         "image_zoom": "lightbox",
         "hide_variants": true,
@@ -132,60 +79,10 @@
         "padding_top": 36,
         "padding_bottom": 28
       }
-    },
-    "image_banner_6QJice": {
-      "type": "image-banner",
-      "blocks": {
-        "heading_DPj4Fc": {
-          "type": "heading",
-          "settings": {
-            "heading": "The Fit You Actually Want",
-            "heading_size": "h0"
-          }
-        },
-        "text_XkWHXi": {
-          "type": "text",
-          "settings": {
-            "text": "Made from heavyweight cotton with a soft washed finish, this t-shirt delivers structure without sacrificing comfort. Holds its shape, resists wear, and improves over time.",
-            "text_style": "body"
-          }
-        },
-        "buttons_YhMyV3": {
-          "type": "buttons",
-          "settings": {
-            "button_label_1": "Shop",
-            "button_link_1": "",
-            "button_style_secondary_1": false,
-            "button_label_2": "Shop The Campaign",
-            "button_link_2": "",
-            "button_style_secondary_2": false
-          }
-        }
-      },
-      "block_order": [
-        "heading_DPj4Fc",
-        "text_XkWHXi",
-        "buttons_YhMyV3"
-      ],
-      "name": "t:sections.image-banner.presets.name",
-      "settings": {
-        "image": "shopify://shop_images/Oversized_washed_cotton_bg.png",
-        "image_overlay_opacity": 0,
-        "image_height": "large",
-        "image_behavior": "none",
-        "desktop_content_position": "middle-center",
-        "desktop_content_alignment": "left",
-        "show_text_box": false,
-        "color_scheme": "scheme-3",
-        "stack_images_on_mobile": false,
-        "mobile_content_alignment": "center",
-        "show_text_below": false
-      }
     }
   },
   "order": [
     "main",
-    "related-products",
-    "image_banner_6QJice"
+    "related-products"
   ]
 }
