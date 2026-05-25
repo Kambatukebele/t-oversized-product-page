@@ -12,8 +12,26 @@
     "main": {
       "type": "main-product",
       "blocks": {
+        "breadcrumbs_fQEB7J": {
+          "type": "breadcrumbs",
+          "settings": {
+            "show_breadcrumbs": true
+          }
+        },
+        "inventory_tjyjzj": {
+          "type": "inventory",
+          "settings": {
+            "text_style": "body",
+            "inventory_threshold": 10,
+            "show_inventory_quantity": true
+          }
+        },
         "title": {
           "type": "title",
+          "settings": {}
+        },
+        "description_zrbxQi": {
+          "type": "description",
           "settings": {}
         },
         "price": {
@@ -40,7 +58,10 @@
         }
       },
       "block_order": [
+        "breadcrumbs_fQEB7J",
+        "inventory_tjyjzj",
         "title",
+        "description_zrbxQi",
         "price",
         "rating_4rUR8X",
         "variant_picker",
