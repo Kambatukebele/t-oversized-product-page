@@ -469,6 +469,8 @@
                     {{ block.settings.text | default: block.settings.page.title | escape }}
                   </button>
                 </modal-opener>
+              {%- when 'breadcrumbs' -%}
+                {% render 'breadcrumbs', shop: shop.url, product: product %}
               {%- when 'share' -%}
                 {% liquid
                   assign share_url = product.selected_variant.url | default: product.url | prepend: request.origin
@@ -746,6 +748,18 @@
   "blocks": [
     {
       "type": "@app"
+    },
+    {
+      "type": "breadcrumbs",
+      "name": "Breadcrumbs",
+      "settings": [
+        {
+          "type": "checkbox",
+          "id": "show_breadcrumbs",
+          "default": true,
+          "label": "Show breadcrumbs"
+        }
+      ]
     },
     {
       "type": "text",
