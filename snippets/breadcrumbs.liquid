@@ -1,0 +1,39 @@
+{% doc %}
+  Breadcrumb navigation for the product page.
+  if for some reason the product is in multiple collections, this will show all of them. You might want to limit this to just the first one or the most relevant one.
+
+  @description This snippet is used in the main-product section to display the breadcrumb navigation on the product page. It shows the path from the home page to the current product, including any collections the product belongs to.
+
+  @example
+  {% render 'breadcrumbs', shop: shop.url, product: product %}
+
+  @param {shop} The - URL of the shop, used for the home link.
+  @param {product} The - product object, used to access the product title and collections.
+{% enddoc %}
+
+<div class="breadcrumbs">
+  <a href="{{ shop }}">Home</a>
+  <span>/</span>
+  {%- for collection in product.collections -%}
+    {% if forloop.first %}
+      <a href="{{ collection.url }}">{{ collection.title }}</a>
+      <span>/</span>
+    {% endif %}
+  {%- endfor -%}
+  <span>{{ product.title }}</span>
+</div>
+
+<style>
+  .breadcrumbs {
+    font-size: 12px;
+    margin-bottom: 20px;
+  }
+  .breadcrumbs a {
+    color: #555;
+    text-decoration: none;
+  }
+  .breadcrumbs span {
+    color: #999;
+    margin: 0 5px;
+  }
+</style>
