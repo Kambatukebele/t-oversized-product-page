@@ -115,3 +115,110 @@
 }
 
 /* ========================== End Footer  ========================== */
+/* ========================== Prooduct page  ========================== */
+/* Title */
+.product__info-wrapper .product__title h1,
+.product__info-wrapper .product__title h2 {
+  font-size: 24px;
+  line-height: 29px;
+}
+@media screen and (min-width: 750px) {
+  .product__info-wrapper .product__title h1,
+  .product__info-wrapper .product__title h2 {
+    font-size: 48px;
+    line-height: 53px;
+  }
+}
+/* Prices */
+.product .product__info-wrapper .product__info-container .price {
+  height: fit-content;
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  flex-wrap: wrap;
+  gap: 8px;
+  /* background-color: red; */
+}
+
+/* regular price without sale, regular price with sale and compare at price */
+.product
+  .product__info-wrapper
+  .product__info-container
+  .price
+  .price__container
+  .price__regular
+  .price-item--regular,
+.product
+  .product__info-wrapper
+  .product__info-container
+  .price
+  .price__container
+  .price__sale
+  .price-item--regular,
+.product
+  .product__info-wrapper
+  .product__info-container
+  .price
+  .price__container
+  .price__sale
+  .price-item--sale {
+  font-size: 32px;
+}
+/* compare_at price color */
+.product
+  .product__info-wrapper
+  .product__info-container
+  .price
+  .price__container
+  .price__sale
+  .price-item--regular {
+  color: #dc2626e5;
+}
+/* sales button */
+.product
+  .product__info-wrapper
+  .product__info-container
+  .price
+  .badge.price__badge-sale {
+  width: 150px;
+  height: 52px;
+  background-color: #14532d;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px;
+  border-radius: 0px;
+}
+@media screen and (min-width: 750px) {
+  /* Prices */
+  /* .product .product__info-wrapper .product__info-container .price {
+    height: 48px;
+
+    
+  } */
+  .product
+    .product__info-wrapper
+    .product__info-container
+    .price
+    .price__container
+    .price__regular
+    .price-item--regular,
+  .product
+    .product__info-wrapper
+    .product__info-container
+    .price
+    .price__container
+    .price__sale
+    .price-item--regular,
+  .product
+    .product__info-wrapper
+    .product__info-container
+    .price
+    .price__container
+    .price__sale
+    .price-item--sale {
+    font-size: 40px;
+  }
+}
+/* ========================== End Prooduct page  ========================== */
