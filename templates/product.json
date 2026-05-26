@@ -21,7 +21,7 @@
         "inventory_tjyjzj": {
           "type": "inventory",
           "settings": {
-            "text_style": "body",
+            "text_style": "uppercase",
             "inventory_threshold": 10,
             "show_inventory_quantity": true
           }
