@@ -57,12 +57,12 @@
             "show_gift_card_recipient": true
           }
         },
-        "trust_message_RAm3td": {
+        "trust_message_JqHk8D": {
           "type": "trust_message",
           "settings": {
             "text_one": "Unlock Access to Exclusive Rewards & Benefits",
-            "text_two": "Free Standard Shipping for Members",
-            "text_three": "Early Access to New Products & Sales"
+            "text_two": "Free Standard Delivery for orders over $75",
+            "text_three": "Express Delivery Available"
           }
         }
       },
@@ -75,7 +75,7 @@
         "rating_4rUR8X",
         "variant_picker",
         "buy_buttons",
-        "trust_message_RAm3td"
+        "trust_message_JqHk8D"
       ],
       "settings": {
         "enable_sticky_info": true,
@@ -112,5 +112,8 @@
       }
     }
   },
-  "order": ["main", "related-products"]
+  "order": [
+    "main",
+    "related-products"
+  ]
 }
