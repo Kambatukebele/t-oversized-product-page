@@ -1,0 +1,51 @@
+<div class="product__trust-message" {{ block.shopify_attributes }}>
+  <div class="product__trust-message-title">
+    <span style="width:24px; height:24px; display:inline-block;">{{ 'icon-success.svg' | inline_asset_content }}</span>
+    <p>{{ block.settings.text_one }}</p>
+  </div>
+  <div class="product__trust-message-title">
+    <span style="width:24px; height:24px; display:inline-block;">{{ 'icon-box.svg' | inline_asset_content }}</span>
+    <p>{{ block.settings.text_two }}</p>
+  </div>
+  <div class="product__trust-message-title">
+    <span style="width:24px; height:24px; display:inline-block;">{{ 'icon-truck.svg' | inline_asset_content }}</span>
+    <p>{{ block.settings.text_three }}</p>
+  </div>
+</div>
+
+{% stylesheet %}
+  .product__trust-wrapper {
+    border: 1px solid #e1e1e1;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    padding: 0px 20px;
+  }
+  .product__trust-message {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 5px;
+    padding: 16px 0px;
+  }
+  .product__trust-message-title {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .product__trust-message-title p {
+    font-size: 12px;
+  }
+  .product__trust-wrapper .product__trust-message p {
+    margin: 0;
+  }
+  @media screen and (min-width: 750px) {
+    /* .product__trust-wrapper {
+      flex-direction: row;
+      justify-content: space-between;
+    } */
+    .product__trust-message-title p {
+      font-size: 16px;
+    }
+  }
+{% endstylesheet %}
