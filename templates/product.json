@@ -64,6 +64,42 @@
             "text_two": "Free Standard Delivery for orders over $75",
             "text_three": "Express Delivery Available"
           }
+        },
+        "collapsible_tab_MgegR7": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Description",
+            "icon": "check_mark",
+            "content": "",
+            "page": ""
+          }
+        },
+        "collapsible_tab_cVjYA7": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Composition & materials",
+            "icon": "check_mark",
+            "content": "",
+            "page": ""
+          }
+        },
+        "collapsible_tab_bPBayM": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Care Guide",
+            "icon": "check_mark",
+            "content": "",
+            "page": ""
+          }
+        },
+        "collapsible_tab_EfPqJB": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Shipping & Returns",
+            "icon": "check_mark",
+            "content": "",
+            "page": ""
+          }
         }
       },
       "block_order": [
@@ -75,7 +111,11 @@
         "rating_4rUR8X",
         "variant_picker",
         "buy_buttons",
-        "trust_message_JqHk8D"
+        "trust_message_JqHk8D",
+        "collapsible_tab_MgegR7",
+        "collapsible_tab_cVjYA7",
+        "collapsible_tab_bPBayM",
+        "collapsible_tab_EfPqJB"
       ],
       "settings": {
         "enable_sticky_info": true,
