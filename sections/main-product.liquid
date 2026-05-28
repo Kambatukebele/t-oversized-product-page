@@ -191,6 +191,10 @@
                     {%- endif -%}
                   {%- endif -%}
                 </p>
+              {%- when 'trust_message' -%}
+                <div class="product__trust-wrapper" {{ block.shopify_attributes }}>
+                  {% render 'trust-message', block: block %}
+                </div>
               {%- when 'description' -%}
                 {%- if product.description != blank -%}
                   <div class="product__description rte quick-add-hidden" {{ block.shopify_attributes }}>
@@ -762,6 +766,33 @@
       ]
     },
     {
+<<<<<<< HEAD
+=======
+      "type": "trust_message",
+      "name": "Trust Message",
+      "settings": [
+        {
+          "type": "inline_richtext",
+          "id": "text_one",
+          "default": "Unlock Access to Exclusive Rewards & Benefits",
+          "label": "Rewards Text"
+        },
+        {
+          "type": "inline_richtext",
+          "id": "text_two",
+          "default": "Free Standard Shipping for Members",
+          "label": "Shipping Text"
+        },
+        {
+          "type": "inline_richtext",
+          "id": "text_three",
+          "default": "Early Access to New Products & Sales",
+          "label": "Early Access Text"
+        }
+      ]
+    },
+    {
+>>>>>>> 3de4b75 (sync: Pulled latest live theme changes)
       "type": "text",
       "name": "t:sections.main-product.blocks.text.name",
       "settings": [

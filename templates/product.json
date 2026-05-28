@@ -56,6 +56,14 @@
             "show_dynamic_checkout": true,
             "show_gift_card_recipient": true
           }
+        },
+        "trust_message_RAm3td": {
+          "type": "trust_message",
+          "settings": {
+            "text_one": "Unlock Access to Exclusive Rewards & Benefits",
+            "text_two": "Free Standard Shipping for Members",
+            "text_three": "Early Access to New Products & Sales"
+          }
         }
       },
       "block_order": [
@@ -66,7 +74,8 @@
         "price",
         "rating_4rUR8X",
         "variant_picker",
-        "buy_buttons"
+        "buy_buttons",
+        "trust_message_RAm3td"
       ],
       "settings": {
         "enable_sticky_info": true,
@@ -103,8 +112,5 @@
       }
     }
   },
-  "order": [
-    "main",
-    "related-products"
-  ]
+  "order": ["main", "related-products"]
 }
