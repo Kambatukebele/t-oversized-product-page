@@ -1,32 +1,39 @@
 {% doc %}
+  @param {object} the_object - product or collection object, used to access the product title, collection title and collections.
+  @param {number} margin_bottom - The bottom margin for the breadcrumbs container.
+  @param {number} margin_top - The top margin for the breadcrumbs container.
+
+  @description
   Breadcrumb navigation for the product page.
   if for some reason the product is in multiple collections, this will show all of them. You might want to limit this to just the first one or the most relevant one.
-
   @description This snippet is used in the main-product section to display the breadcrumb navigation on the product page. It shows the path from the home page to the current product, including any collections the product belongs to.
 
   @example
-  {% render 'breadcrumbs', shop: shop.url, product: product %}
-
-  @param {shop} The - URL of the shop, used for the home link.
-  @param {product} The - product object, used to access the product title and collections.
+  {% render 'breadcrumbs', the_object: product, margin_bottom: 20, margin_top: 20 %}
+  or
+  @example
+  {% render 'breadcrumbs', the_object: collection, margin_bottom: 20, margin_top: 20 %}
 {% enddoc %}
 
-<div class="breadcrumbs">
-  <a href="{{ shop }}">Home</a>
+<div class="breadcrumbs" style="--margin-bottom: {{ margin_bottom }}px; --margin-top: {{ margin_top }}px;">
+  <a href="{{ shop.url }}">Home</a>
   <span>/</span>
-  {%- for collection in product.collections -%}
-    {% if forloop.first %}
-      <a href="{{ collection.url }}">{{ collection.title }}</a>
-      <span>/</span>
-    {% endif %}
-  {%- endfor -%}
-  <span>{{ product.title }}</span>
+  {% if the_object.collections %}
+    {%- for collection in the_object.collections -%}
+      {% if forloop.first %}
+        <a href="{{ collection.url }}">{{ collection.title }}</a>
+        <span>/</span>
+      {% endif %}
+    {%- endfor -%}
+  {% endif %}
+  <span>{{ the_object.title }}</span>
 </div>
 
 <style>
   .breadcrumbs {
     font-size: 12px;
-    margin-bottom: 20px;
+    margin-bottom: var(--margin-bottom);
+    margin-top: var(--margin-top);
   }
   .breadcrumbs a {
     color: #555;
@@ -40,7 +47,8 @@
   @media screen and (min-width: 750px) {
     .breadcrumbs {
       font-size: 14px;
-      margin-bottom: 20px;
+      margin-bottom: var(--margin-bottom);
+      margin-top: var(--margin-top);
     }
   }
 </style>
