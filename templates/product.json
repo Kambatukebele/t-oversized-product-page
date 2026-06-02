@@ -70,7 +70,7 @@
           "settings": {
             "heading": "Description",
             "icon": "check_mark",
-            "content": "",
+            "content": "<p>{{ product.metafields.custom.product_description | metafield_tag }}</p>",
             "page": ""
           }
         },
@@ -79,7 +79,7 @@
           "settings": {
             "heading": "Composition & materials",
             "icon": "check_mark",
-            "content": "",
+            "content": "<p>{{ product.metafields.custom.composition_materials | metafield_tag }}</p>",
             "page": ""
           }
         },
@@ -88,7 +88,7 @@
           "settings": {
             "heading": "Care Guide",
             "icon": "check_mark",
-            "content": "",
+            "content": "<p>{{ product.metafields.custom.care_guide | metafield_tag }}</p>",
             "page": ""
           }
         },
@@ -97,7 +97,7 @@
           "settings": {
             "heading": "Shipping & Returns",
             "icon": "check_mark",
-            "content": "",
+            "content": "<h4>Shipping</h4><p>We offer fast and reliable shipping on all orders.</p><ul><li>Orders are processed within 1–2 business days.</li><li>Standard delivery typically takes 3–7 business days.</li><li>Shipping times may vary during holidays, promotions, or peak seasons.</li><li>Once your order has shipped, you will receive a confirmation email with tracking information.</li></ul><h4>Returns</h4><p>We want you to be completely satisfied with your purchase.</p><ul><li>Returns are accepted within 30 days of delivery.</li><li>Items must be unused, unworn, and returned in their original packaging.</li><li>Final sale items and gift cards are not eligible for returns.</li><li>Refunds are issued to the original payment method after the returned item has been inspected and approved.</li></ul><p>For questions regarding shipping or returns, please contact our customer support team at info@t-oversized.com.</p>",
             "page": ""
           }
         }
@@ -119,12 +119,12 @@
       ],
       "settings": {
         "enable_sticky_info": true,
-        "color_scheme": "scheme-5",
-        "media_size": "medium",
+        "color_scheme": "scheme-a2a5cd0d-ae77-429a-ba94-07fa45915e8e",
+        "media_size": "large",
         "constrain_to_viewport": false,
-        "media_fit": "cover",
-        "gallery_layout": "stacked",
-        "mobile_thumbnails": "show",
+        "media_fit": "contain",
+        "gallery_layout": "columns",
+        "mobile_thumbnails": "hide",
         "media_position": "left",
         "image_zoom": "lightbox",
         "hide_variants": true,
