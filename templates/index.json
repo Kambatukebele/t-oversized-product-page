@@ -61,6 +61,23 @@
         "show_text_below": false
       }
     },
+    "count_down_banner_AMdrdJ": {
+      "type": "count-down-banner",
+      "name": "Count Down Banner",
+      "settings": {
+        "background_color": "scheme-2",
+        "title": "Get it before it's gone!",
+        "message": "50% OFF on Jackets collection",
+        "button_text": "Shop Now",
+        "collection_sale": "jackets",
+        "year": 2030,
+        "month": "12",
+        "days": "31",
+        "hours": "12 pm",
+        "minutes": "00",
+        "seconds": "00"
+      }
+    },
     "featured_collection": {
       "type": "featured-collection",
       "settings": {
@@ -294,6 +311,7 @@
   },
   "order": [
     "image_banner",
+    "count_down_banner_AMdrdJ",
     "featured_collection",
     "collection_list_aBV3CL",
     "image_banner_ae4RwW",
