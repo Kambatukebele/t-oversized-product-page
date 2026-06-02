@@ -178,15 +178,15 @@
           "shadow": "#121212"
         }
       },
-      "scheme-5": {
+      "scheme-a2a5cd0d-ae77-429a-ba94-07fa45915e8e": {
         "settings": {
-          "background": "#e61717",
+          "background": "#ffffff",
           "background_gradient": "",
-          "text": "#ffffff",
+          "text": "#111111",
           "button": "#111111",
           "button_label": "#ffffff",
           "secondary_button_label": "#111111",
-          "shadow": "#121212"
+          "shadow": "#111111"
         }
       }
     }
