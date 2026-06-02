@@ -4,7 +4,7 @@
 {%- style -%}
   @media screen and (max-width: 749px) {
     .collection-hero--with-image .collection-hero__inner {
-      padding-bottom: calc({{ settings.media_shadow_vertical_offset | at_least: 0 }}px + 2rem);
+      padding-bottom: calc({{settings.media_shadow_vertical_offset | at_least: 0}}px + 2rem);
     }
   }
 {%- endstyle -%}
@@ -12,10 +12,49 @@
 <div class="collection-hero{% if section.settings.show_collection_image and collection.image %} collection-hero--with-image{% endif %} color-{{ section.settings.color_scheme }} gradient">
   <div class="collection-hero__inner page-width {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}">
     <div class="collection-hero__text-wrapper">
+      {% render 'breadcrumbs', the_object: collection, margin_bottom: 20, margin_top: 20 %}
       <h1 class="collection-hero__title">
         <span class="visually-hidden">{{ 'sections.collection_template.title' | t }}: </span>
         {{- collection.title | escape -}}
       </h1>
+
+      <div class="collection-hero__all-types">
+        {% for type in collection.all_types %}
+          <div class="collection-hero__types">
+            {{ type }}
+          </div>
+        {% endfor %}
+      </div>
+
+      <style>
+        .collection-hero__all-types {
+          display: flex;
+          flex-wrap: nowrap;
+          justify-content: flex-start;
+          overflow-x: auto;
+          margin-left: -0.5em;
+        }
+
+        .collection-hero__types {
+          flex: 0 0 auto;
+          border: 1px solid #999;
+          color: {{ settings.color_scheme | color_modify: 'alpha', 0.8 }};
+          padding: 0.25em 0.5em;
+          margin-top: 0.5em;
+          margin-right: 0.5em;
+          font-size: 0.875em;
+          cursor: pointer;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+        @media screen and (min-width: 750px) {
+          .collection-hero__all-types {
+            overflow-x: hidden;
+            margin-left: 0em;
+          }
+        }
+      </style>
 
       {%- if section.settings.show_collection_description -%}
         <div class="collection-hero__description rte">{{ collection.description }}</div>
