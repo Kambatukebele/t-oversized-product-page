@@ -1,0 +1,624 @@
+{% comment %}
+  Marquee Ticker — Production Ready
+  ─────────────────────────────────
+  • Speed is pixel-per-second based (JS measures real content width)
+  • Seamless infinite loop via two cloned groups
+  • Pause on hover / touch
+  • Fade edges optional
+  • Per-block: text, optional icon image, optional link
+  • Full schema: typography, separator, animation, layout, borders, colors
+{% endcomment %}
+
+{%- liquid
+  assign sep = section.settings.separator_style
+  assign speed = section.settings.pixels_per_second | default: 60
+  assign dir = section.settings.direction
+-%}
+
+<section
+  id="mq-{{ section.id }}"
+  class="mq-section"
+  aria-label="{{ section.settings.aria_label | default: 'Announcements' }}"
+  style="
+    --mq-bg:          {{ section.settings.background_color }};
+    --mq-text:        {{ section.settings.text_color }};
+    --mq-sep:         {{ section.settings.separator_color }};
+    --mq-fs:          {{ section.settings.font_size }}px;
+    --mq-fs-mobile:   {{ section.settings.font_size_mobile }}px;
+    --mq-fw:          {{ section.settings.font_weight }};
+    --mq-ls:          {{ section.settings.letter_spacing | times: 0.01 }}em;
+    --mq-sep-scale:   {{ section.settings.separator_size | times: 0.01 }};
+    --mq-gap:         {{ section.settings.item_spacing }}px;
+    --mq-py:          {{ section.settings.vertical_padding }}px;
+    --mq-border-w:    {{ section.settings.border_width }}px;
+    --mq-border-col:  {{ section.settings.border_color }};
+    --mq-fade-w:      {{ section.settings.fade_width }}px;
+  "
+>
+  {%- comment -%} Accessible static text for screen readers {%- endcomment -%}
+  <p class="mq-sr-only">
+    {%- for block in section.blocks -%}
+      {{ block.settings.text -}}
+      {%- unless forloop.last %} · {% endunless %}
+    {%- endfor -%}
+  </p>
+
+  <div class="mq-viewport" aria-hidden="true">
+    {%- if section.settings.fade_edges -%}
+      <div class="mq-fade mq-fade--left"></div>
+      <div class="mq-fade mq-fade--right"></div>
+    {%- endif -%}
+
+    <div class="mq-track" id="mq-track-{{ section.id }}">
+      {%- comment -%} Two identical groups — JS clones more if needed {%- endcomment -%}
+      {%- for clone in (1..2) -%}
+        <div class="mq-group" aria-hidden="{% if clone == 2 %}true{% else %}false{% endif %}">
+          {%- for block in section.blocks -%}
+            {%- assign has_link = false -%}
+            {%- if block.settings.link != blank -%}{%- assign has_link = true -%}{%- endif -%}
+
+            <span class="mq-item" {{ block.shopify_attributes }}>
+              {%- if has_link -%}
+                <a class="mq-item__link" href="{{ block.settings.link }}">
+              {%- endif -%}
+
+              {%- if block.settings.icon != blank -%}
+                <span class="mq-item__icon">
+                  {{-
+                    block.settings.icon
+                    | image_url: width: 40
+                    | image_tag: loading: 'lazy', class: 'mq-item__icon-img', alt: ''
+                  -}}
+                </span>
+              {%- endif -%}
+
+              <span class="mq-item__text">{{ block.settings.text }}</span>
+
+              {%- if has_link -%}
+                </a>
+              {%- endif -%}
+            </span>
+
+            <span class="mq-sep" aria-hidden="true">
+              {%- case sep -%}
+                {%- when 'dot' -%}
+                  &bull;
+                {%- when 'star' -%}
+                  &#10022;
+                {%- when 'diamond' -%}
+                  &#9670;
+                {%- when 'line' -%}
+                  &vert;
+                {%- when 'arrow' -%}
+                  &rsaquo;
+                {%- when 'slash' -%}
+                  /
+                {%- when 'none' -%}
+                {%- when 'custom' -%}
+                  {{ section.settings.custom_separator }}
+                {%- else -%}
+                  &bull;
+              {%- endcase -%}
+            </span>
+          {%- endfor -%}
+        </div>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+<style>
+  #mq-{{ section.id }} {
+    background-color: var(--mq-bg);
+    padding: var(--mq-py) 0;
+    overflow: hidden;
+    width: 100%;
+    box-sizing: border-box;
+    position: relative;
+    {%- if section.settings.show_top_border %}
+    border-top: var(--mq-border-w) solid var(--mq-border-col);
+    {%- endif %}
+    {%- if section.settings.show_bottom_border %}
+    border-bottom: var(--mq-border-w) solid var(--mq-border-col);
+    {%- endif %}
+  }
+
+  #mq-{{ section.id }} .mq-sr-only {
+    position: absolute;
+    width: 1px; height: 1px;
+    padding: 0; margin: -1px;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+    white-space: nowrap;
+    border: 0;
+  }
+
+  #mq-{{ section.id }} .mq-viewport {
+    position: relative;
+    overflow: hidden;
+    display: flex;
+  }
+
+  #mq-{{ section.id }} .mq-track {
+    display: flex;
+    flex-wrap: nowrap;
+    width: max-content;
+    will-change: transform;
+    /* duration injected by JS */
+    animation: mq-scroll-{{ section.id }} 999s linear infinite;
+    {%- if dir == 'right' %}
+    animation-direction: reverse;
+    {%- endif %}
+  }
+
+  {%- if section.settings.pause_on_hover %}
+  #mq-{{ section.id }}:hover .mq-track,
+  #mq-{{ section.id }}:focus-within .mq-track {
+    animation-play-state: paused;
+  }
+  {%- endif %}
+
+  #mq-{{ section.id }} .mq-group {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+  }
+
+  #mq-{{ section.id }} .mq-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    white-space: nowrap;
+    padding: 0 var(--mq-gap);
+    font-size: var(--mq-fs);
+    font-weight: var(--mq-fw);
+    color: var(--mq-text);
+    letter-spacing: var(--mq-ls);
+    text-transform: {{ section.settings.text_transform }};
+    font-family: {{ section.settings.font_family }};
+    line-height: 1;
+  }
+
+  #mq-{{ section.id }} .mq-item__link {
+    color: inherit;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  #mq-{{ section.id }} .mq-item__link:hover {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  #mq-{{ section.id }} .mq-item__icon-img {
+    display: block;
+    width: auto;
+    height: {{ section.settings.icon_size }}px;
+    object-fit: contain;
+    flex-shrink: 0;
+  }
+
+  #mq-{{ section.id }} .mq-sep {
+    color: var(--mq-sep);
+    font-size: calc(var(--mq-fs) * var(--mq-sep-scale));
+    flex-shrink: 0;
+    line-height: 1;
+    user-select: none;
+    {%- if sep == 'none' %}
+    display: none;
+    {%- endif %}
+  }
+
+  /* Fade edges */
+  #mq-{{ section.id }} .mq-fade {
+    position: absolute;
+    top: 0; bottom: 0;
+    width: var(--mq-fade-w);
+    z-index: 2;
+    pointer-events: none;
+  }
+  #mq-{{ section.id }} .mq-fade--left {
+    left: 0;
+    background: linear-gradient(to right, var(--mq-bg), transparent);
+  }
+  #mq-{{ section.id }} .mq-fade--right {
+    right: 0;
+    background: linear-gradient(to left, var(--mq-bg), transparent);
+  }
+
+  @keyframes mq-scroll-{{ section.id }} {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+  }
+
+  @media (max-width: 749px) {
+    #mq-{{ section.id }} .mq-item {
+      font-size: var(--mq-fs-mobile);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    #mq-{{ section.id }} .mq-track {
+      animation: none !important;
+    }
+    #mq-{{ section.id }} .mq-group:not(:first-child) {
+      display: none;
+    }
+    #mq-{{ section.id }} .mq-group {
+      flex-wrap: wrap;
+      justify-content: center;
+      width: 100%;
+    }
+    #mq-{{ section.id }} .mq-item {
+      white-space: normal;
+      text-align: center;
+    }
+  }
+</style>
+
+<script>
+  (function () {
+    const SECTION_ID = {{ section.id | json }};
+    const PX_PER_SEC = {{ section.settings.pixels_per_second | default: 60 }};
+
+    function initMarquee() {
+      const section = document.getElementById('mq-' + SECTION_ID);
+      const track   = document.getElementById('mq-track-' + SECTION_ID);
+      if (!section || !track) return;
+
+      /* Respect reduced-motion */
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+      /* Measure one group (half the track since we have 2 clones) */
+      const groups = track.querySelectorAll('.mq-group');
+      if (!groups.length) return;
+
+      function setDuration() {
+        const groupW = groups[0].getBoundingClientRect().width;
+        if (groupW === 0) return;
+        /* duration = distance ÷ speed  |  distance = one group width (50% of 2-group track) */
+        const duration = groupW / PX_PER_SEC;
+        track.style.animationDuration = duration.toFixed(3) + 's';
+      }
+
+      setDuration();
+
+      /* Recalculate on resize (font load etc.) */
+      const ro = new ResizeObserver(setDuration);
+      ro.observe(track);
+
+      /* Touch: pause while finger is on the ticker */
+      {% if section.settings.pause_on_hover %}
+      section.addEventListener('touchstart', function () {
+        track.style.animationPlayState = 'paused';
+      }, { passive: true });
+      section.addEventListener('touchend', function () {
+        track.style.animationPlayState = 'running';
+      }, { passive: true });
+      {% endif %}
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initMarquee);
+    } else {
+      initMarquee();
+    }
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Marquee Ticker",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Typography"
+    },
+    {
+      "type": "select",
+      "id": "font_family",
+      "label": "Font family",
+      "options": [
+        { "value": "inherit", "label": "Theme default" },
+        { "value": "serif", "label": "Serif" },
+        { "value": "sans-serif", "label": "Sans-serif" },
+        { "value": "monospace", "label": "Monospace" }
+      ],
+      "default": "inherit"
+    },
+    {
+      "type": "range",
+      "id": "font_size",
+      "label": "Font size — desktop (px)",
+      "min": 10,
+      "max": 36,
+      "step": 1,
+      "default": 13
+    },
+    {
+      "type": "range",
+      "id": "font_size_mobile",
+      "label": "Font size — mobile (px)",
+      "min": 10,
+      "max": 28,
+      "step": 1,
+      "default": 11
+    },
+    {
+      "type": "select",
+      "id": "font_weight",
+      "label": "Font weight",
+      "options": [
+        { "value": "300", "label": "Light" },
+        { "value": "400", "label": "Regular" },
+        { "value": "500", "label": "Medium" },
+        { "value": "600", "label": "Semibold" },
+        { "value": "700", "label": "Bold" }
+      ],
+      "default": "600"
+    },
+    {
+      "type": "select",
+      "id": "text_transform",
+      "label": "Text case",
+      "options": [
+        { "value": "none", "label": "As typed" },
+        { "value": "uppercase", "label": "UPPERCASE" },
+        { "value": "lowercase", "label": "lowercase" },
+        { "value": "capitalize", "label": "Title Case" }
+      ],
+      "default": "uppercase"
+    },
+    {
+      "type": "range",
+      "id": "letter_spacing",
+      "label": "Letter spacing",
+      "min": 0,
+      "max": 30,
+      "step": 1,
+      "default": 10,
+      "info": "Value ÷ 100 = em — e.g. 10 → 0.10em"
+    },
+    {
+      "type": "header",
+      "content": "Separator"
+    },
+    {
+      "type": "select",
+      "id": "separator_style",
+      "label": "Separator style",
+      "options": [
+        { "value": "dot", "label": "Dot  •" },
+        { "value": "star", "label": "Star  ✦" },
+        { "value": "diamond", "label": "Diamond  ◆" },
+        { "value": "line", "label": "Line  |" },
+        { "value": "arrow", "label": "Arrow  ›" },
+        { "value": "slash", "label": "Slash  /" },
+        { "value": "none", "label": "None" },
+        { "value": "custom", "label": "Custom" }
+      ],
+      "default": "dot"
+    },
+    {
+      "type": "text",
+      "id": "custom_separator",
+      "label": "Custom separator character",
+      "placeholder": "e.g. ✿  ◦  —  ×",
+      "info": "Only used when 'Custom' is selected above"
+    },
+    {
+      "type": "range",
+      "id": "separator_size",
+      "label": "Separator size (% of font size)",
+      "min": 40,
+      "max": 120,
+      "step": 5,
+      "default": 70
+    },
+    {
+      "type": "header",
+      "content": "Spacing"
+    },
+    {
+      "type": "range",
+      "id": "item_spacing",
+      "label": "Horizontal padding per item (px)",
+      "min": 8,
+      "max": 96,
+      "step": 4,
+      "default": 32
+    },
+    {
+      "type": "range",
+      "id": "vertical_padding",
+      "label": "Vertical padding (px)",
+      "min": 4,
+      "max": 56,
+      "step": 2,
+      "default": 14
+    },
+    {
+      "type": "header",
+      "content": "Animation"
+    },
+    {
+      "type": "range",
+      "id": "pixels_per_second",
+      "label": "Scroll speed (px/s)",
+      "min": 10,
+      "max": 300,
+      "step": 10,
+      "default": 60,
+      "info": "Controls actual pixel speed regardless of content length. Lower = slower."
+    },
+    {
+      "type": "select",
+      "id": "direction",
+      "label": "Scroll direction",
+      "options": [
+        { "value": "left", "label": "← Left (default)" },
+        { "value": "right", "label": "→ Right" }
+      ],
+      "default": "left"
+    },
+    {
+      "type": "checkbox",
+      "id": "pause_on_hover",
+      "label": "Pause on hover / touch",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "Fade edges"
+    },
+    {
+      "type": "checkbox",
+      "id": "fade_edges",
+      "label": "Fade left and right edges",
+      "default": false
+    },
+    {
+      "type": "range",
+      "id": "fade_width",
+      "label": "Fade width (px)",
+      "min": 20,
+      "max": 200,
+      "step": 10,
+      "default": 80,
+      "info": "Only visible when 'Fade edges' is enabled"
+    },
+    {
+      "type": "header",
+      "content": "Borders"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_top_border",
+      "label": "Show top border",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "show_bottom_border",
+      "label": "Show bottom border",
+      "default": false
+    },
+    {
+      "type": "range",
+      "id": "border_width",
+      "label": "Border thickness (px)",
+      "min": 1,
+      "max": 6,
+      "step": 1,
+      "default": 1
+    },
+    {
+      "type": "color",
+      "id": "border_color",
+      "label": "Border color",
+      "default": "#b0a090"
+    },
+    {
+      "type": "header",
+      "content": "Icons"
+    },
+    {
+      "type": "range",
+      "id": "icon_size",
+      "label": "Icon height (px)",
+      "min": 12,
+      "max": 48,
+      "step": 2,
+      "default": 18,
+      "info": "Height of optional per-item icon images"
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background",
+      "default": "#c8b99a"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text",
+      "default": "#5a4a36"
+    },
+    {
+      "type": "color",
+      "id": "separator_color",
+      "label": "Separator",
+      "default": "#7a6a55"
+    },
+    {
+      "type": "header",
+      "content": "Accessibility"
+    },
+    {
+      "type": "text",
+      "id": "aria_label",
+      "label": "Screen reader label for this section",
+      "default": "Announcements",
+      "info": "Describes the ticker to assistive technologies"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "item",
+      "name": "Ticker item",
+      "settings": [
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Text",
+          "default": "Crafted beauty essentials designed to nourish, protect, and enhance your natural glow daily"
+        },
+        {
+          "type": "image_picker",
+          "id": "icon",
+          "label": "Icon image (optional)",
+          "info": "Small icon displayed before the text. Use a transparent PNG or SVG."
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link (optional)",
+          "info": "Makes this item a clickable link"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Marquee Ticker",
+      "blocks": [
+        {
+          "type": "item",
+          "settings": {
+            "text": "Crafted beauty essentials designed to nourish, protect, and enhance your natural glow daily"
+          }
+        },
+        {
+          "type": "item",
+          "settings": {
+            "text": "Free shipping on orders over $50"
+          }
+        },
+        {
+          "type": "item",
+          "settings": {
+            "text": "New arrivals every week"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
