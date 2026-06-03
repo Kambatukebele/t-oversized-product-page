@@ -9,6 +9,65 @@
  */
 {
   "sections": {
+    "horizontal_scroller_Hjc7fq": {
+      "type": "horizontal-scroller",
+      "blocks": {
+        "item_nwGkmH": {
+          "type": "item",
+          "settings": {
+            "text": "FREE SHIPPING ON ALL ORDERS OVER $100",
+            "link": ""
+          }
+        },
+        "item_4bVdFc": {
+          "type": "item",
+          "settings": {
+            "text": "DESIGNED FOR EVERYDAY COMFORT, BUILT WITH PREMIUM MATERIALS, AND DELIVERED STRAIGHT TO YOUR DOOR",
+            "link": ""
+          }
+        },
+        "item_pqp646": {
+          "type": "item",
+          "settings": {
+            "text": "30-DAY HASSLE-FREE RETURNS",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "item_nwGkmH",
+        "item_4bVdFc",
+        "item_pqp646"
+      ],
+      "name": "Horizontal Scroller",
+      "settings": {
+        "font_family": "inherit",
+        "font_size": 13,
+        "font_size_mobile": 11,
+        "font_weight": "600",
+        "text_transform": "uppercase",
+        "letter_spacing": 10,
+        "separator_style": "diamond",
+        "custom_separator": "",
+        "separator_size": 70,
+        "item_spacing": 32,
+        "vertical_padding": 14,
+        "pixels_per_second": 60,
+        "direction": "left",
+        "pause_on_hover": true,
+        "fade_edges": false,
+        "fade_width": 80,
+        "show_top_border": false,
+        "show_bottom_border": false,
+        "border_width": 1,
+        "border_color": "#b0a090",
+        "icon_size": 18,
+        "background_color": "#c8b99a",
+        "text_color": "#5a4a36",
+        "separator_color": "#7a6a55",
+        "aria_label": "Announcements"
+      }
+    },
     "image_banner": {
       "type": "image-banner",
       "blocks": {
@@ -79,6 +138,116 @@
         "seconds": "00"
       }
     },
+    "rich_text_wiiFkF": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_UhJ9ea": {
+          "type": "heading",
+          "settings": {
+            "heading": "Traveler – Not a Tourist",
+            "heading_size": "h1"
+          }
+        },
+        "text_tNr7Jw": {
+          "type": "text",
+          "settings": {
+            "text": "<p>With “Traveler – Not a Tourist,” t-oversized presents its Spring/Summer <br/>2026 collection – a tribute to conscious travel and the modern spirit of<br/> discovery. It accompanies the t-overiszed man on his journey: from urban <br/>metropolises to Mediterranean coasts to the nocturnal atmosphere of <br/>Morocco. The looks combine clean cuts, relaxed silhouettes, and <br/>functional details for every moment of your trip.</p>"
+          }
+        },
+        "button_Y4Umw4": {
+          "type": "button",
+          "settings": {
+            "button_label": "New Arrivals",
+            "button_link": "#",
+            "button_style_secondary": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_UhJ9ea",
+        "text_tNr7Jw",
+        "button_Y4Umw4"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "scheme-2",
+        "full_width": true,
+        "padding_top": 48,
+        "padding_bottom": 32
+      }
+    },
+    "horizontal_scroller_hBn9Re": {
+      "type": "horizontal-scroller",
+      "blocks": {
+        "item_CKxViD": {
+          "type": "item",
+          "settings": {
+            "text": "• TECHNICAL FABRICS, DURABLE CONSTRUCTION, AND MODERN DESIGN CREATED FOR LIFE ON AND OFF THE TRAIL",
+            "link": ""
+          }
+        },
+        "item_LDFrMG": {
+          "type": "item",
+          "settings": {
+            "text": "NEW SEASON ESSENTIALS HAVE ARRIVED",
+            "link": ""
+          }
+        },
+        "item_dWVC8y": {
+          "type": "item",
+          "settings": {
+            "text": "DISCOVER MODERN SILHOUETTES, TIMELESS DESIGNS, AND VERSATILE PIECES CREATED TO ELEVATE YOUR DAILY WARDROBE",
+            "link": ""
+          }
+        },
+        "item_XnXcjP": {
+          "type": "item",
+          "settings": {
+            "text": "ENGINEERED FOR THE JOURNEY AHEAD",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "item_CKxViD",
+        "item_LDFrMG",
+        "item_dWVC8y",
+        "item_XnXcjP"
+      ],
+      "name": "Horizontal Scroller",
+      "settings": {
+        "font_family": "inherit",
+        "font_size": 36,
+        "font_size_mobile": 11,
+        "font_weight": "600",
+        "text_transform": "uppercase",
+        "letter_spacing": 10,
+        "separator_style": "line",
+        "custom_separator": "",
+        "separator_size": 70,
+        "item_spacing": 36,
+        "vertical_padding": 14,
+        "pixels_per_second": 60,
+        "direction": "left",
+        "pause_on_hover": true,
+        "fade_edges": true,
+        "fade_width": 80,
+        "show_top_border": false,
+        "show_bottom_border": false,
+        "border_width": 1,
+        "border_color": "#b0a090",
+        "icon_size": 18,
+        "background_color": "#111111",
+        "text_color": "#ffffff",
+        "separator_color": "#111111",
+        "aria_label": "Announcements"
+      }
+    },
     "featured_collection": {
       "type": "featured-collection",
       "settings": {
@@ -143,6 +312,73 @@
         "swipe_on_mobile": false,
         "padding_top": 0,
         "padding_bottom": 0
+      }
+    },
+    "horizontal_scroller_dxxWQH": {
+      "type": "horizontal-scroller",
+      "blocks": {
+        "item_UMEbLi": {
+          "type": "item",
+          "settings": {
+            "text": "BUY LESS, CHOOSE BETTER",
+            "link": ""
+          }
+        },
+        "item_yfcK8w": {
+          "type": "item",
+          "settings": {
+            "text": "• THOUGHTFULLY DESIGNED OUTDOOR ESSENTIALS MADE TO LAST SEASON AFTER SEASON WITHOUT COMPROMISING COMFORT OR PERFORMANCE",
+            "link": ""
+          }
+        },
+        "item_q7bPRK": {
+          "type": "item",
+          "settings": {
+            "text": "FROM WEEKEND HIKES TO EVERYDAY ADVENTURES, GET YOUR GEAR DELIVERED QUICKLY AND RELIABLY",
+            "link": ""
+          }
+        },
+        "item_pgTFKc": {
+          "type": "item",
+          "settings": {
+            "text": "FREE SHIPPING ON ORDERS OVER $100",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "item_UMEbLi",
+        "item_yfcK8w",
+        "item_q7bPRK",
+        "item_pgTFKc"
+      ],
+      "name": "Horizontal Scroller",
+      "settings": {
+        "font_family": "inherit",
+        "font_size": 36,
+        "font_size_mobile": 11,
+        "font_weight": "600",
+        "text_transform": "uppercase",
+        "letter_spacing": 10,
+        "separator_style": "line",
+        "custom_separator": "",
+        "separator_size": 70,
+        "item_spacing": 36,
+        "vertical_padding": 14,
+        "pixels_per_second": 60,
+        "direction": "right",
+        "pause_on_hover": true,
+        "fade_edges": true,
+        "fade_width": 80,
+        "show_top_border": false,
+        "show_bottom_border": false,
+        "border_width": 1,
+        "border_color": "#b0a090",
+        "icon_size": 18,
+        "background_color": "#111111",
+        "text_color": "#ffffff",
+        "separator_color": "#111111",
+        "aria_label": "Announcements"
       }
     },
     "image_banner_ae4RwW": {
@@ -311,10 +547,14 @@
     }
   },
   "order": [
+    "horizontal_scroller_Hjc7fq",
     "image_banner",
     "count_down_banner_AMdrdJ",
+    "rich_text_wiiFkF",
+    "horizontal_scroller_hBn9Re",
     "featured_collection",
     "collection_list_aBV3CL",
+    "horizontal_scroller_dxxWQH",
     "image_banner_ae4RwW",
     "featured_collection_ULAAR7",
     "image_banner_TADyHm",
