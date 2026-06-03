@@ -66,6 +66,7 @@
       "name": "Count Down Banner",
       "settings": {
         "background_color": "scheme-2",
+        "is_border_enabled": true,
         "title": "Get it before it's gone!",
         "message": "50% OFF on Jackets collection",
         "button_text": "Shop Now",
