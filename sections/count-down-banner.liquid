@@ -13,7 +13,7 @@
 
 <count-down-timer data-end-time="{{ target_date | date: '%Y-%m-%d %H:%M:%S' }}">
   <section
-    style="--background-color: {{ section.settings.background_color.settings.background }}; --text-color: {{ section.settings.background_color.settings.text }}; --button-color: {{ section.settings.background_color.settings.button }}; --button-label-color: {{ section.settings.background_color.settings.button_label }}"
+    style="--background-color: {{ section.settings.background_color.settings.background }}; --text-color: {{ section.settings.background_color.settings.text }}; --button-color: {{ section.settings.background_color.settings.button }}; --button-label-color: {{ section.settings.background_color.settings.button_label }}; {% if section.settings.is_border_enabled %}border: 1px solid #9999997e;{% endif %}"
     class="count-down-banner"
   >
     <div class="count-down-banner__wrapper page-width">
@@ -125,6 +125,12 @@
       "id": "background_color",
       "label": "Background Color",
       "default": "scheme-1"
+    },
+    {
+      "type": "checkbox",
+      "id": "is_border_enabled",
+      "label": "Enable border around the banner",
+      "default": false
     },
     {
       "type": "text",
