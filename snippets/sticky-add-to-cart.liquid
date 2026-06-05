@@ -10,12 +10,16 @@
         </div>
         <div class="sticky-atc-bar__meta">
           <span id="sticky-atc-title" class="sticky-atc-bar__title"></span>
-          <span id="sticky-atc-variant" class="sticky-atc-bar__variant"></span>
+
+          <span id="sticky-atc-variant" class="sticky-atc-bar__variant">
+            <small style="display:block" class="sticky-atc-bar__variant-color-size"></small>
+            <small style="display:block" class="sticky-atc-bar__variant-color-size"></small>
+          </span>
         </div>
       </div>
 
       <!-- Price -->
-      <div id="sticky-atc-price" class="sticky-atc-bar__price">$</div>
+      <div id="sticky-atc-price" class="sticky-atc-bar__price"></div>
 
       <!-- CTA button -->
       <div class="sticky-atc-bar__actions">
@@ -95,7 +99,7 @@
   .sticky-atc-bar__meta {
     display: flex;
     flex-direction: column;
-    gap: 0.2rem;
+    gap: 0rem;
     min-width: 0;
   }
 
@@ -108,7 +112,7 @@
     text-overflow: ellipsis;
   }
 
-  .sticky-atc-bar__variant {
+  .sticky-atc-bar__variant, .sticky-atc-bar__variant-color-size{
     font-size: 1.2rem;
     color: rgba(var(--color-foreground), 0.6);
     white-space: nowrap;
