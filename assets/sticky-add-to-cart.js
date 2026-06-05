@@ -1,93 +1,104 @@
 class StickyAddToCart extends HTMLElement {
   connectedCallback() {
-    this.stickyAtcBarContainer = this.querySelector(".sticky-atc-bar");
-
     this._render();
   }
 
+  disconnectedCallback() {
+    this.unsubscribeVariant?.();
+    window.removeEventListener("scroll", this._scrollHandler);
+  }
+
   _render() {
-    this.title = document.querySelector(".product__title").innerText;
+    this.stickyAtcBarContainer = this.querySelector(".sticky-atc-bar");
+    /**
+     * Define variable that will target the product element itself
+     */
+    // product title
+    this.productTitle = document.querySelector(".product__title").textContent;
 
-    this.featuredImage =
+    // product image
+    this.productFeaturedImage =
       document.querySelectorAll(".product__media")[0].firstElementChild.srcset;
-
-    this.price = document.querySelector(
+    //product price
+    this.productPrice = document.querySelector(
       ".price__regular .price-item--regular",
-    ).innerHTML;
+    ).textContent;
+    // product main add to cart
+    this.mainProductAtc = document.querySelector(".product-form__submit");
 
     /**
-     * Default value for the title, price, size when the page load
-     *
+     * Define Sticky-add-to-cart variable
      */
 
     this.stickyAtcBarContainer.querySelector(
       ".sticky-atc-bar__title",
-    ).innerHTML = this.title;
+    ).textContent = this.productTitle;
 
     this.stickyAtcBarContainer.querySelector(
       ".sticky-atc-bar__price",
-    ).innerHTML = this.price;
+    ).textContent = `${this.productPrice}`;
 
     this.stickyAtcBarContainer.querySelector(
       ".sticky-atc-bar__thumbnail-image",
-    ).srcset = this.featuredImage;
+    ).srcset = this.productFeaturedImage;
 
-    //default size value
+    //default size and color value
     this.variantSelect = document.querySelector("variant-selects");
-    this.fieldSet = this.variantSelect.querySelectorAll(".product-form__input");
-    this.inputs = this.fieldSet[0].querySelectorAll(
-      ".product-form__input input[type='radio']",
+
+    this.colorSizeSATC = this.stickyAtcBarContainer.querySelectorAll(
+      ".sticky-atc-bar__variant-color-size",
     );
 
-    this.inputs.forEach((item) => {
-      if (item.getAttribute("checked") !== null) {
+    const fieldsets = this.variantSelect.querySelectorAll("fieldset");
+    fieldsets.forEach((fieldset, index) => {
+      const checked = fieldset.querySelector('input[type="radio"]:checked');
+      if (checked && this.colorSizeSATC[index]) {
+        this.colorSizeSATC[index].textContent = checked.value;
+      }
+    });
+
+    // Update price, size, color based on the pubsub
+    this.unsubscribeVariant = subscribe(
+      PUB_SUB_EVENTS.variantChange,
+      (payload) => {
+        const { variant } = payload.data;
+
         this.stickyAtcBarContainer.querySelector(
-          ".sticky-atc-bar__variant",
-        ).innerHTML = item.getAttribute("value");
-      }
+          ".sticky-atc-bar__price",
+        ).textContent = `$${(variant.price / 100).toFixed(2)}`;
+
+        variant.options.forEach((colorSize, index) => {
+          this.colorSizeSATC[index].textContent = colorSize;
+        });
+      },
+    );
+
+    this.btnAtc = this.stickyAtcBarContainer.querySelector("#sticky-atc-btn");
+
+    this.btnAtc.addEventListener("click", () => {
+      // Simulate a click to the main product with the element.click()
+      this.mainProductAtc.click();
     });
 
-    // Observing price price
-    const priceRegular = document.querySelector(".price__regular");
-    const config = {
-      childList: true,
-      subtree: true,
-      attributes: true,
+    let ticking = false;
+    this.nativeAtcBtn = document.querySelector(".product-form__buttons"); // main btn on the product
+    this._scrollHandler = () => {
+      if (!ticking) {
+        // handling scroll -> throttle with the requestAnimationFrame
+        requestAnimationFrame(() => {
+          const position = this.nativeAtcBtn.getBoundingClientRect();
+
+          if (position.bottom < 0) {
+            this.stickyAtcBarContainer.classList.add("is-visible");
+          } else {
+            this.stickyAtcBarContainer.classList.remove("is-visible");
+          }
+          ticking = false;
+        });
+        ticking = true;
+      }
     };
-
-    let observer = new MutationObserver(callbackFunc.bind(this));
-    observer.observe(priceRegular, config);
-
-    function callbackFunc(mutations, config) {
-      for (const mutation of mutations) {
-        if (mutation.type === "childList") {
-          let currentPrice = mutation.target.innerText;
-          this.stickyAtcBarContainer.querySelector(
-            ".sticky-atc-bar__price",
-          ).innerHTML = `$${(currentPrice / 100).toFixed(2)}`;
-        }
-      }
-    }
-
-    const getDataChange = subscribe(PUB_SUB_EVENTS.variantChange, (payload) => {
-      const { sectionId, html, variant } = payload.data;
-      priceRegular.textContent = variant.price;
-      this.stickyAtcBarContainer.querySelector(
-        ".sticky-atc-bar__variant",
-      ).innerHTML = variant.option1;
-    });
-
-    window.addEventListener("scroll", () => {
-      this.nativeAtcBtn = document.querySelector(".product-form__buttons"); // main btn on the product
-
-      this.position = this.nativeAtcBtn.getBoundingClientRect();
-
-      if (this.position.bottom < 0) {
-        this.stickyAtcBarContainer.classList.add("is-visible");
-      } else {
-        this.stickyAtcBarContainer.classList.remove("is-visible");
-      }
-    });
+    window.addEventListener("scroll", this._scrollHandler);
   }
 }
 
