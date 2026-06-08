@@ -1449,6 +1449,47 @@
         "id": "cart_color_scheme",
         "label": "t:sections.all.colors.label",
         "default": "scheme-1"
+      },
+      {
+        "type": "header",
+        "content": "Free Shipping Settings"
+      },
+      {
+        "type": "checkbox",
+        "id": "enabled_free_shipping_bar?",
+        "label": "Enable Free Shipping Bar",
+        "default": false,
+        "info": "This will enable the free shipping bar inside the cart drawer"
+      },
+      {
+        "type": "number",
+        "id": "free_shipping_threshold",
+        "label": "Free Shipping Threshold",
+        "placeholder": "100",
+        "default": 99,
+        "info": "This will set the amount of the free shipping you want to have",
+        "visible_if": "{{ settings.enabled_free_shipping_bar? }}"
+      },
+      {
+        "type": "header",
+        "content": "Fill color",
+        "visible_if": "{{ settings.enabled_free_shipping_bar? }}"
+      },
+      {
+        "type": "color",
+        "id": "fill_color",
+        "label": "Fill Color",
+        "default": "#000000",
+        "info": "This is the fill color",
+        "visible_if": "{{ settings.enabled_free_shipping_bar? }}"
+      },
+      {
+        "type": "color",
+        "id": "fill_color_is_ready",
+        "label": "Fill Color Reached",
+        "default": "#008000",
+        "info": "This is the fill color when the amount is reached",
+        "visible_if": "{{ settings.enabled_free_shipping_bar? }}"
       }
     ]
   }
