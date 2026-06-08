@@ -74,6 +74,12 @@
           </span>
         </button>
       </div>
+
+      <!-- Progress shipping-bar -->
+      {%- if cart != empty and settings.enabled_free_shipping_bar? -%}
+        {% render 'free-shipping-bar', threshold: settings.free_shipping_threshold %}
+      {%- endif -%}
+
       <cart-drawer-items
         {% if cart == empty %}
           class=" is-empty"
@@ -258,7 +264,10 @@
                             {%- endif -%}
 
                             {%- if item.variant.available and item.unit_price_measurement -%}
-                              {% render 'unit-price', price: item.unit_price, measurement: item.unit_price_measurement %}
+                              {% render 'unit-price',
+                                price: item.unit_price,
+                                measurement: item.unit_price_measurement
+                              %}
                             {%- endif -%}
                           </div>
                         </td>
