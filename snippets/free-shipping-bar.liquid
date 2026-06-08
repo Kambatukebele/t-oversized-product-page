@@ -1,0 +1,29 @@
+{% assign threshold = settings.free_shipping_threshold | times: 100 %}
+{% assign cart_total = cart.total_price %}
+{% assign remaining = threshold | minus: cart_total %}
+{% assign percentage = cart_total | times: 100.0 | divided_by: threshold | round %}
+{% assign percentage_capped = percentage | at_most: 100 %}
+{% assign remaining_dollars = remaining | money %}
+{% assign fill_color = settings.fill_color %}
+{% assign fill_color_is_reached = settings.fill_color_is_ready %}
+
+{{ 'free-shipping-bar.css' | asset_url | stylesheet_tag }}
+
+{% if threshold > 0 %}
+  <div class="free-shipping">
+    <p class="free-shipping__message">
+      {% if remaining <= 0 %}
+        Hurraay!!! You have your <strong>FREE SHIPPING</strong>
+      {% else %}
+        You're only <strong>{{ remaining_dollars }}</strong> away from free shipping!
+      {% endif %}
+    </p>
+    <div class="free-shipping__track">
+      <div
+        data-width="{{ percentage_capped }}"
+        class="free-shipping__fill{% if remaining <= 0 %} is-reached{% endif %}"
+        style="--width: {{ percentage_capped }}%; --fill-color:{{ fill_color }};--fill-color-is-reached:{{ fill_color_is_reached }}"
+      ></div>
+    </div>
+  </div>
+{% endif %}
